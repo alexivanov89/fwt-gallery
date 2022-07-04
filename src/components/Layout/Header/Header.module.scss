@@ -1,0 +1,6 @@
+@use "../../../styles" as s;
+
+.header {
+  @include s.flex(center, space-between);
+  width: 100%;
+}

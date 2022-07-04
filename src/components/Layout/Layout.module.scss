@@ -1,0 +1,17 @@
+@use "../../styles" as s;
+
+.layout {
+  @include s.flex() {
+    flex-direction: column;
+  }
+  padding: 25px 20px;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+
+  .main {
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    color: var(--color-text);
+  }
+}

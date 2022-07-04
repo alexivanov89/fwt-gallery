@@ -1,0 +1,43 @@
+{
+  "extends": [
+    "react-app",
+    "react-app/jest",
+    "prettier",
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "rules": {
+    "react-hooks/exhaustive-deps": 0,
+    "prettier/prettier": [
+      "warn"
+    ],
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "local",
+        "varsIgnorePattern": "[set]",
+        "ignoreRestSiblings": true,
+        "argsIgnorePattern": "^rest"
+      }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": [
+          "warn",
+          "error"
+        ]
+      }
+    ]
+  },
+  "ignorePatterns": [
+    "src/**/*.test.ts",
+    "src/**/*.woff",
+    "src/**/*.ttf",
+    "src/**/*.png",
+    "src/**/*.eot",
+    "src/**/*.css",
+    "src/**/*.scss"
+  ]
+}

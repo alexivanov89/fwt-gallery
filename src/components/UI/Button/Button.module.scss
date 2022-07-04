@@ -1,0 +1,17 @@
+[id="btn"] {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  &.active {
+    color: var(--main-color) !important;
+  }
+
+  &.filled {
+    color: var(--main-color-black);
+  }
+}

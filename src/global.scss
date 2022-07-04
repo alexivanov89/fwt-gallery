@@ -1,0 +1,23 @@
+@import-normalize;
+@import "styles";
+@import "styles/fonts";
+
+:root {
+  --color-text: #{$secondary-color};
+  --color-primary: #{$main-color};
+  --color-secondary: #{$secondary-color};
+  --color-bg: #{$main-color};
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dark {
+  --color-text: #{$main-color};
+  --color-primary: #{$secondary-color};
+  --color-secondary: #{$main-color};
+  --color-bg: #{$secondary-color};
+}

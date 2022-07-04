@@ -1,0 +1,13 @@
+.card {
+  // width: 360px;
+  // height: 275px;
+  & img {
+    width: 360px;
+    height: 275px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+
+  .info {
+  }
+}
