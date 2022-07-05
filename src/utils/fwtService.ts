@@ -1,7 +1,7 @@
 import { apiClient } from './api';
 
 export const fwtService = {
-  getPaintings: () => apiClient.get('paintings'),
-  getAuthors: () => apiClient.get('authors'),
-  getLocations: () => apiClient.get('locations'),
+  getPaintings: (params = {}) => apiClient.get(`paintings`, { params }),
+  getAuthors: (params = {}) => apiClient.get(`authors`, { params }),
+  getLocations: (params = {}) => apiClient.get(`locations`, { params }),
 };

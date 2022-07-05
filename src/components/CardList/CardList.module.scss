@@ -1,11 +1,43 @@
-.cardList {
-  display: flex;
-  flex-direction: column;
+@use "../../styles" as s;
 
-  .list {
+.cardList {
+  @include s.flex(center, flex-start) {
+    flex-direction: column;
+  }
+  width: 100%;
+
+  .filters {
+    height: 45px;
     display: flex;
-    flex-grow: 1;
-    flex-wrap: wrap;
-    gap: 20px;
+    width: 100%;
+  }
+
+  .cards {
+    @include s.flex() {
+      flex-grow: 1;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    padding: 45px 0px 40px;
+  }
+
+  .pagination {
+    height: 41px;
+    width: 100%;
+    display: flex;
+
+    .wrapper {
+      display: grid;
+      grid-gap: 1px;
+      grid-auto-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(5, 1fr);
+      button {
+        width: 40px;
+        height: 40px;
+        outline: 1px solid var(--color-secondary);
+        color: var(--color-text);
+      }
+    }
   }
 }

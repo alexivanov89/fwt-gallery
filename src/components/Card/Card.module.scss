@@ -1,13 +1,87 @@
+@use "../../styles" as s;
+
 .card {
-  // width: 360px;
-  // height: 275px;
+  position: relative;
+  @include s.flex() {
+  }
+  color: var(--color-text-card);
+  overflow: hidden;
+  border-radius: 20px;
+
   & img {
-    width: 360px;
-    height: 275px;
+    border-radius: 20px;
     -o-object-fit: cover;
-       object-fit: cover;
+    object-fit: cover;
+    width: 280px;
+    height: 205px;
+
+    @media screen and (min-width: 320px) {
+      width: 280px;
+      height: 205px;
+    }
+
+    @media screen and (min-width: 768px) {
+      width: 340px;
+      height: 249px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      width: 300px;
+      height: 230px;
+    }
+
+    @media screen and (min-width: 1366px) {
+      width: 360px;
+      height: 275px;
+    }
   }
 
-  .info {
+  .infoPainting {
+    @include s.flex(flex-start, center) {
+      flex-direction: column;
+    }
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 5px 15px;
+    transform: translateY(62px);
+    background: var(--color-bg-card);
+    font-family: "Roboto";
+    border-radius: 0px 0px 20px 20px;
+    -webkit-animation: all 0.5ms 0.2ms;
+    animation: all 0.5ms 0.2ms;
+
+    &:hover {
+      cursor: pointer;
+      transform: translateY(0px);
+    }
+
+    .name {
+      font-weight: 700;
+      font-size: 1.125rem;
+      line-height: 1.11;
+      text-transform: capitalize;
+    }
+
+    .author,
+    .created,
+    .location {
+      font-size: 0.813rem;
+      line-height: 1.53;
+
+      .title {
+        font-weight: 500;
+      }
+
+      .value {
+        font-weight: 300;
+        padding-left: 8px;
+      }
+    }
+
+    .author .value {
+      padding-left: 4px;
+    }
   }
 }

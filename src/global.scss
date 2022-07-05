@@ -7,6 +7,8 @@
   --color-primary: #{$main-color};
   --color-secondary: #{$secondary-color};
   --color-bg: #{$main-color};
+  --color-bg-card: #{$bg-color};
+  --color-text-card: #{$secondary-color};
 }
 
 * {

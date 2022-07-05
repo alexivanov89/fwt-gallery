@@ -7,10 +7,10 @@ interface IImage {
   imageUrl: string;
   name: string;
   authorId: number;
-  author: string;
+  author: string | undefined;
   created: string;
   locationId: number;
-  location: string;
+  location: string | undefined;
 }
 
 interface ICardProps {
@@ -26,9 +26,18 @@ const Card: FC<ICardProps> = (props) => {
       <Image src={`${BASE_URL}${imageUrl}`} alt={name} />
       <div className={styles.infoPainting}>
         <div className={styles.name}>{name}</div>
-        <div className={styles.author}>{author}</div>
-        <div className={styles.created}>{created}</div>
-        <div className={styles.location}>{location}</div>
+        <div className={styles.author}>
+          <span className={styles.title}>Author:</span>
+          <span className={styles.value}>{author}</span>
+        </div>
+        <div className={styles.created}>
+          <span className={styles.title}>Created:</span>
+          <span className={styles.value}>{created}</span>
+        </div>
+        <div className={styles.location}>
+          <span className={styles.title}>Location:</span>
+          <span className={styles.value}>{location}</span>
+        </div>
       </div>
     </div>
   );

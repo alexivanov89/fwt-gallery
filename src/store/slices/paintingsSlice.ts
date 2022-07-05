@@ -2,33 +2,52 @@ import { createAsyncThunk, createSlice, SerializedError } from '@reduxjs/toolkit
 import { RootState } from '..';
 import { fwtService } from '../../utils/fwtService';
 
-export interface IPaintings {
-  values: [] | any[];
+export interface IPainting {
+  authorId: number;
+  created: string;
+  id: number;
+  imageUrl: string;
+  locationId: number;
+  name: string;
+}
+export interface IAuthor {
+  id: number;
+  name: string;
+}
+
+export interface ILocation {
+  id: number;
+  location: string;
+}
+export interface IPaintingsState {
+  values: [] | IPainting[];
+  total: number;
   isLoading: boolean;
   error: null | string | SerializedError;
 }
 
-export interface IAuthors {
-  values: [] | any[];
+export interface IAuthorsState {
+  values: [] | IAuthor[];
   isLoading: boolean;
   error: null | string | SerializedError;
 }
 
-export interface ILocations {
-  values: [] | any[];
+export interface ILocationsState {
+  values: [] | ILocation[];
   isLoading: boolean;
   error: null | string | SerializedError;
 }
 
-export interface PaintingsState {
-  paintings: IPaintings;
-  authors: IAuthors;
-  locations: ILocations;
+export interface IState {
+  paintings: IPaintingsState;
+  authors: IAuthorsState;
+  locations: ILocationsState;
 }
 
-const initialState: PaintingsState = {
+const initialState: IState = {
   paintings: {
     values: [],
+    total: 0,
     isLoading: false,
     error: null,
   },
@@ -44,20 +63,26 @@ const initialState: PaintingsState = {
   },
 };
 
-export const fetchPaintings = createAsyncThunk('paintigs/fetchPaintings', async () => {
-  const response = await fwtService.getPaintings();
+export const fetchPaintings = createAsyncThunk(
+  'paintigs/fetchPaintings',
+  async (params?: object) => {
+    const response = await fwtService.getPaintings(params);
+    return response;
+  },
+);
+
+export const fetchAuthors = createAsyncThunk('paintigs/fetchAuthors', async (params?: object) => {
+  const response = await fwtService.getAuthors(params);
   return response.data;
 });
 
-export const fetchAuthors = createAsyncThunk('paintigs/fetchAuthors', async () => {
-  const response = await fwtService.getAuthors();
-  return response.data;
-});
-
-export const fetchLocations = createAsyncThunk('paintigs/fetchLocations', async () => {
-  const response = await fwtService.getLocations();
-  return response.data;
-});
+export const fetchLocations = createAsyncThunk(
+  'paintigs/fetchLocations',
+  async (params?: object) => {
+    const response = await fwtService.getLocations(params);
+    return response.data;
+  },
+);
 
 const paintingsSlice = createSlice({
   name: 'painting',
@@ -70,7 +95,8 @@ const paintingsSlice = createSlice({
         state.paintings.error = null;
       })
       .addCase(fetchPaintings.fulfilled, (state, action) => {
-        state.paintings.values = action.payload;
+        state.paintings.values = action.payload?.data;
+        state.paintings.total = +action.payload?.headers['x-total-count'];
         state.paintings.isLoading = false;
         state.paintings.error = null;
       })
