@@ -1,4 +1,10 @@
 import { useEffect, useMemo, useState } from 'react';
+import {
+  LeftArrowIcon,
+  LeftDoubleArrowIcon,
+  RightArrowIcon,
+  RightDoubleArrowIcon,
+} from '../../assets/icons';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { usePagination } from '../../hooks/usePagination';
 import {
@@ -21,7 +27,7 @@ const CardList = () => {
   const locations = useAppSelector(selectLocations);
   const { total: totalPages } = paintings;
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(8);
   const totalCount = useMemo(() => getPageCount(totalPages, limit), [totalPages, limit]);
   let pagesArray = usePagination(totalCount);
   const preparePaintings = useMemo(
@@ -37,9 +43,12 @@ const CardList = () => {
     [paintings, authors, locations],
   );
   useEffect(() => {
-    dispatch(fetchPaintings({ _page: page, _limit: limit }));
     dispatch(fetchAuthors());
     dispatch(fetchLocations());
+  }, []);
+
+  useEffect(() => {
+    dispatch(fetchPaintings({ _page: page, _limit: limit }));
   }, [page, limit]);
 
   const isLoading = paintings.isLoading && authors.isLoading && locations.isLoading;
@@ -55,17 +64,57 @@ const CardList = () => {
           preparePaintings.map((paint) => <Card key={paint?.id} imgData={paint} />)}
       </div>
       <div className={styles.pagination}>
-        <div className={styles.wrapper}>
+        <div
+          className={styles.wrapper}
+          style={{ gridTemplateColumns: `repeat(${totalCount + 4}, 1fr)` }}
+        >
+          <Button
+            classes={styles.firstPageBtn}
+            disabled={page === 1}
+            onClick={() => {
+              setPage(1);
+            }}
+          >
+            <LeftDoubleArrowIcon />
+          </Button>
+          <Button
+            classes={styles.prevPageBtn}
+            disabled={page === 1}
+            onClick={() => {
+              setPage((prevPage) => --prevPage);
+            }}
+          >
+            <LeftArrowIcon />
+          </Button>
           {pagesArray.length > 0 &&
-            pagesArray.map((page) => (
+            pagesArray.map((pageItem) => (
               <Button
+                active={pageItem === page}
                 onClick={() => {
-                  setPage(page);
+                  setPage(pageItem);
                 }}
               >
-                {page}
+                {pageItem}
               </Button>
             ))}
+          <Button
+            classes={styles.nextPageBtn}
+            disabled={page === totalCount}
+            onClick={() => {
+              setPage((prevPage) => ++prevPage);
+            }}
+          >
+            <RightArrowIcon />
+          </Button>
+          <Button
+            classes={styles.lastPageBtn}
+            disabled={page === totalCount}
+            onClick={() => {
+              setPage(totalCount);
+            }}
+          >
+            <RightDoubleArrowIcon />
+          </Button>
         </div>
       </div>
     </div>

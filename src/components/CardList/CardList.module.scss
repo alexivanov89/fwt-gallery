@@ -31,7 +31,15 @@
       grid-gap: 1px;
       grid-auto-columns: 1fr;
       grid-template-rows: 1fr;
-      grid-template-columns: repeat(5, 1fr);
+
+      .firstPageBtn {
+        border-radius: 6px 0px 0px 6px;
+      }
+
+      .lastPageBtn {
+        border-radius: 0px 6px 6px 0px;
+      }
+
       button {
         width: 40px;
         height: 40px;

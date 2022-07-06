@@ -5,10 +5,13 @@
 :root {
   --color-text: #{$secondary-color};
   --color-primary: #{$main-color};
+  --color-primary-lighten: #{$main-color-lighten};
   --color-secondary: #{$secondary-color};
+  --color-secondary-lighten: #{$secondary-color-lighten};
   --color-bg: #{$main-color};
   --color-bg-card: #{$bg-color};
   --color-text-card: #{$secondary-color};
+  --color-disabled: #{$main-disabled};
 }
 
 * {
@@ -21,5 +24,8 @@ body.dark {
   --color-text: #{$main-color};
   --color-primary: #{$secondary-color};
   --color-secondary: #{$main-color};
+  --color-primary-lighten: #{$secondary-color-lighten};
+  --color-secondary-lighten: #{$main-color-lighten};
   --color-bg: #{$secondary-color};
+  --color-disabled: #{$secondary-disabled};
 }

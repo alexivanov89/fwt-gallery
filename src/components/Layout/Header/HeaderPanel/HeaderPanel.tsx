@@ -6,7 +6,7 @@ import styles from './HeaderPanel.module.scss';
 const HeaderPanel = () => {
   const { toggleTheme } = useTheme();
   return (
-    <Button onClick={toggleTheme}>
+    <Button classes={styles.toggleBtn} onClick={toggleTheme}>
       <ThemeIcon className={styles.themeIcon} />
     </Button>
   );

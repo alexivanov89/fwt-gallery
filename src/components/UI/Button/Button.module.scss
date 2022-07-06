@@ -3,15 +3,21 @@
   border: none;
   cursor: pointer;
 
+  &:hover:not(:disabled) {
+    background-color: var(--color-primary-lighten);
+  }
+
   &:disabled {
     pointer-events: none;
+    color: var(--color-disabled) !important;
+    outline: 1px solid var(--color-disabled) !important;
   }
 
   &.active {
-    color: var(--main-color) !important;
+    background-color: var(--color-secondary);
+    color: var(--color-primary) !important;
   }
 
   &.filled {
-    color: var(--main-color-black);
   }
 }
