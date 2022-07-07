@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/fwt-gallery/static/css/main.3c235136.css",
-    "main.js": "/fwt-gallery/static/js/main.6491e633.js",
-    "static/css/640.dc875a5b.chunk.css": "/fwt-gallery/static/css/640.dc875a5b.chunk.css",
-    "static/js/640.cf743ed3.chunk.js": "/fwt-gallery/static/js/640.cf743ed3.chunk.js",
-    "static/js/454.d4a31412.chunk.js": "/fwt-gallery/static/js/454.d4a31412.chunk.js",
+    "main.js": "/fwt-gallery/static/js/main.c730e9f5.js",
+    "static/css/640.0aba8499.chunk.css": "/fwt-gallery/static/css/640.0aba8499.chunk.css",
+    "static/js/640.67d80c31.chunk.js": "/fwt-gallery/static/js/640.67d80c31.chunk.js",
+    "static/js/454.6cdc20e3.chunk.js": "/fwt-gallery/static/js/454.6cdc20e3.chunk.js",
     "static/media/Robotomediumitalic.ttf": "/fwt-gallery/static/media/Robotomediumitalic.35abcf5eb54b0c398e52.ttf",
     "static/media/Robotoitalic.ttf": "/fwt-gallery/static/media/Robotoitalic.727137e411cf490757ce.ttf",
     "static/media/Robotolightitalic.ttf": "/fwt-gallery/static/media/Robotolightitalic.0af29016d4a1e7a3cc4e.ttf",
@@ -49,13 +49,13 @@
     "static/media/leftArrowIcon.svg": "/fwt-gallery/static/media/leftArrowIcon.49645e167dd50885da08993f50ab1034.svg",
     "static/media/rightArrowIcon.svg": "/fwt-gallery/static/media/rightArrowIcon.8cdae57ace75060dbde2ffe0f69ea781.svg",
     "main.3c235136.css.map": "/fwt-gallery/static/css/main.3c235136.css.map",
-    "main.6491e633.js.map": "/fwt-gallery/static/js/main.6491e633.js.map",
-    "640.dc875a5b.chunk.css.map": "/fwt-gallery/static/css/640.dc875a5b.chunk.css.map",
-    "640.cf743ed3.chunk.js.map": "/fwt-gallery/static/js/640.cf743ed3.chunk.js.map",
-    "454.d4a31412.chunk.js.map": "/fwt-gallery/static/js/454.d4a31412.chunk.js.map"
+    "main.c730e9f5.js.map": "/fwt-gallery/static/js/main.c730e9f5.js.map",
+    "640.0aba8499.chunk.css.map": "/fwt-gallery/static/css/640.0aba8499.chunk.css.map",
+    "640.67d80c31.chunk.js.map": "/fwt-gallery/static/js/640.67d80c31.chunk.js.map",
+    "454.6cdc20e3.chunk.js.map": "/fwt-gallery/static/js/454.6cdc20e3.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.3c235136.css",
-    "static/js/main.6491e633.js"
+    "static/js/main.c730e9f5.js"
   ]
 }
