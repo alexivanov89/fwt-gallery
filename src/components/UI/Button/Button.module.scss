@@ -16,8 +16,8 @@
   &.active {
     background-color: var(--color-secondary);
     color: var(--color-primary) !important;
-  }
-
-  &.filled {
+    &:hover {
+      background-color: var(--color-secondary-lighten);
+    }
   }
 }

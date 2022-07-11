@@ -2,7 +2,7 @@ import { lazy } from 'react';
 const MainPage = lazy(() => import('../../pages/MainPage/MainPage'));
 
 export enum routePaths {
-  mainPage = '/main',
+  mainPage = '/',
 }
 
 export const publicRoutes = [

@@ -3,29 +3,37 @@
 @import "styles/fonts";
 
 :root {
-  --color-text: #{$secondary-color};
-  --color-primary: #{$main-color};
-  --color-primary-lighten: #{$main-color-lighten};
-  --color-secondary: #{$secondary-color};
-  --color-secondary-lighten: #{$secondary-color-lighten};
-  --color-bg: #{$main-color};
+  --color-text: #{$color-black};
+  --color-primary: #{$color-white};
+  --color-primary-lighten: #{$color-white-lighten};
+  --color-secondary: #{$color-black};
+  --color-secondary-lighten: #{$color-black-lighten};
+  --color-bg: #{$color-white};
   --color-bg-card: #{$bg-color};
-  --color-text-card: #{$secondary-color};
+  --color-text-card: #{$color-black};
   --color-disabled: #{$main-disabled};
+  --color-bg-input: #{$color-white-lighten};
+  --color-placeholder: #{$main-disabled};
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body.dark {
-  --color-text: #{$main-color};
-  --color-primary: #{$secondary-color};
-  --color-secondary: #{$main-color};
-  --color-primary-lighten: #{$secondary-color-lighten};
-  --color-secondary-lighten: #{$main-color-lighten};
-  --color-bg: #{$secondary-color};
+  --color-text: #{$color-white};
+  --color-primary: #{$color-black};
+  --color-secondary: #{$color-white};
+  --color-primary-lighten: #{$color-black-lighten};
+  --color-secondary-lighten: #{$color-white-lighten};
+  --color-bg: #{$color-black};
   --color-disabled: #{$secondary-disabled};
+  --color-bg-input: #{$color-white};
 }

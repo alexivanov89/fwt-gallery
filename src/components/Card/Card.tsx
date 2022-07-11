@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { BASE_URL } from '../../utils/api';
 import { Image } from '../UI/Image';
 import styles from './Card.module.scss';
@@ -11,6 +11,7 @@ interface IImage {
   created: string;
   locationId: number;
   location: string | undefined;
+  id: number;
 }
 
 interface ICardProps {
@@ -19,7 +20,7 @@ interface ICardProps {
 
 const Card: FC<ICardProps> = (props) => {
   const { imgData } = props;
-  const { imageUrl, name, authorId, author, created, locationId, location } = imgData;
+  const { imageUrl, name, authorId, author, created, locationId, location, id } = imgData;
 
   return (
     <div className={styles.card}>
@@ -43,4 +44,4 @@ const Card: FC<ICardProps> = (props) => {
   );
 };
 
-export default Card;
+export default memo(Card, (prevProps, nextProps) => prevProps.imgData.id === nextProps.imgData.id);

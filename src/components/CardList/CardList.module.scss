@@ -1,36 +1,119 @@
 @use "../../styles" as s;
 
 .cardList {
-  @include s.flex(center, flex-start) {
-    flex-direction: column;
-  }
+  display: grid;
   width: 100%;
+  min-height: calc(100vh - 180px);
+  grid-auto-columns: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: 45px 1fr 41px;
+  gap: 0px 0px;
+  grid-template-areas:
+    "filters"
+    "cards"
+    "pagination";
+
+  @media screen and (max-width: 767px) {
+    min-height: calc(100vh - 180px - 225px);
+    grid-template-rows: 225px 1fr 41px;
+  }
 
   .filters {
-    height: 45px;
-    display: flex;
+    @include s.flex(center, space-between) {
+    }
+    gap: 20px;
+    grid-area: filters;
     width: 100%;
+
+    & div[class~="Select"],
+    & div[class~="Range"] {
+      @media screen and (min-width: 320px) {
+        width: 100%;
+      }
+
+      @media screen and (min-width: 768px) {
+        width: calc((100% - 60px) / 4);
+      }
+
+      & > span {
+        width: unset;
+      }
+    }
+
+    & div[class~="Range__сontainer--open"] {
+      width: calc(100% + 2px);
+    }
+
+    div[class~="Select--dark"],
+    div[class~="Range--dark"],
+    ul[class~="Select__optionContainer--dark"],
+    div[class~="Range__сontainer--dark"] {
+      background-color: black;
+    }
+
+    @media screen and (max-width: 767px) {
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .input {
+      color: black;
+      background-color: var(--color-bg-input);
+      border: none;
+      &::-webkit-input-placeholder {
+        color: var(--color-placeholder);
+      }
+      &::-moz-placeholder {
+        color: var(--color-placeholder);
+      }
+      &:-ms-input-placeholder {
+        color: var(--color-placeholder);
+      }
+      &::-ms-input-placeholder {
+        color: var(--color-placeholder);
+      }
+      &::placeholder {
+        color: var(--color-placeholder);
+      }
+    }
   }
 
   .cards {
-    @include s.flex() {
-      flex-grow: 1;
+    grid-area: cards;
+
+    @include s.flex(flex-start, center) {
       flex-wrap: wrap;
+      align-content: flex-start;
       gap: 20px;
     }
     padding: 45px 0px 40px;
   }
 
   .pagination {
+    grid-area: pagination;
     height: 41px;
     width: 100%;
-    display: flex;
+    @include s.flex(center, flex-start) {
+    }
+
+    @media screen and (max-width: 430px) {
+      @include s.flex() {
+      }
+    }
 
     .wrapper {
       display: grid;
       grid-gap: 1px;
       grid-auto-columns: 1fr;
       grid-template-rows: 1fr;
+
+      .firstPageBtn,
+      .lastPageBtn,
+      .prevPageBtn,
+      .nextPageBtn {
+        @include s.flex() {
+        }
+      }
 
       .firstPageBtn {
         border-radius: 6px 0px 0px 6px;
@@ -45,6 +128,11 @@
         height: 40px;
         outline: 1px solid var(--color-secondary);
         color: var(--color-text);
+
+        @media screen and (max-width: 430px) {
+          width: 25px;
+          height: 25px;
+        }
       }
     }
   }

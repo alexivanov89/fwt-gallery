@@ -6,6 +6,7 @@
   }
   min-height: 100vh;
   background-color: var(--color-bg);
+  padding: 25px 20px;
 
   .main {
     @include s.flex(flex-start, center) {
@@ -13,10 +14,6 @@
     }
     width: 100%;
     color: var(--color-text);
-  }
-
-  @media screen and (min-width: 320px) {
-    padding: 25px 20px;
   }
 
   @media screen and (min-width: 768px) {

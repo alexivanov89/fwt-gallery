@@ -8,7 +8,8 @@
   overflow: hidden;
   border-radius: 20px;
 
-  & img {
+  & img,
+  & > div:first-child {
     border-radius: 20px;
     -o-object-fit: cover;
     object-fit: cover;
